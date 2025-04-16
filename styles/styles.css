@@ -1,73 +1,234 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+section{
+  font-family:"Times New Roman";
+  font-size:28px;
+}
+header {
+  background-color:  darkorange;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  font-family:"Times New Roman";
+  font-size:25px;
+}
+header h1, header h2 {
+  font-family: 'Georgia', 'Arial', serif;
+  letter-spacing: 1px;
+  color: white; /* SHSU Orange */
+}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Default logo styles */
+.floating-logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  background-color: transparent; /* Ensures no background */
+}
+
+.floating-logo img {
+  height: 80px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .floating-logo img {
+    height: 60px;
   }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .floating-logo img {
+    height: 50px;
+    top: 5px;
+    left: 5px;
   }
-  
-  header {
-    background-color: #0077cc;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin-bottom: 10px;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 4px;
-  }
-  
-  nav ul li a:hover,
-  nav ul li a.active {
-    background-color: #005fa3;
-  }
-  
-  main {
-    max-width: 800px;
-    margin: 30px auto;
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  section {
-    margin-bottom: 30px;
-  }
-  
-  section h2 {
-    color: #0077cc;
-    margin-bottom: 10px;
-  }
-  
-  footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #0077cc;
-    color: white;
-    border-radius: 8px;
-  }
-  
+}
+nav {
+  display: flex;
+  justify-content: center;
+  background: navy;
+}
+
+nav a {
+  color: #fff;
+  padding: 1rem;
+  text-decoration:underline;
+}
+
+nav a:hover {
+  background: darkorange;
+}
+.content-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2rem;
+padding: 2rem;
+background-color: #f9f9f9;
+}
+
+.card {
+background-color: white;
+border-radius: 12px;
+padding: 1.5rem;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.2s ease;
+}
+
+.card:hover {
+transform: translateY(-5px);
+}
+
+.card h2 {
+margin-bottom: 0.8rem;
+color: #d35400; /* SHSU orange? */
+}
+
+.card p {
+font-size: 1rem;
+color: #333;
+}
+.hero {
+  background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+/* Hero section setup */
+.hero {
+position: relative;
+height: 400px;
+overflow: hidden;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+animation: slideShow 18s infinite;
+z-index: 0;
+opacity: 0.8;
+}
+
+/* Text overlay on top of slideshow */
+.hero-overlay {
+position: relative;
+z-index: 1;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: top;
+color: white;
+text-shadow: 1px 1px 5px black;
+font-size: 2rem;
+}
+
+/* Keyframes to fade between images */
+@keyframes slideShow {
+0% {
+  background-image: url('/project/images/shsubelltower.jpg');
+}
+25%{
+  background-image: url('/project/images/usitcc.png');
+}
+50% {
+  background-image: url('/project/images/itsa1.jpg');
+}
+75% {
+  background-image: url('/project/images/itsa2.jpg');
+}
+100% {
+  background-image: url('/project/images/itsa3.jpg');
+}
+}
+.content {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+}
+
+footer {
+  background: navy;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+@media only screen and (max-width:700px)
+{/* Hide the checkbox */
+/* Hide the checkbox */
+.menu-toggle {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Hamburger icon (hidden by default, shown on small screens) */
+.hamburger {
+display: none;
+font-size: 2rem;
+background-color: #444;
+color: white;
+padding: 1rem;
+cursor: pointer;
+}
+
+/* Default nav menu (visible on large screens) */
+.nav-menu {
+display: flex;
+justify-content: center;
+background-color: #444;
+flex-wrap: wrap;
+}
+
+.nav-menu a {
+color: white;
+padding: 1rem;
+text-decoration: none;
+display: block;
+}
+
+/* On small screens (max-width: 768px) */
+@media (max-width: 768px) {
+.hamburger {
+  display: block;
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Show nav menu if checkbox is checked */
+.menu-toggle:checked + .hamburger + .nav-menu {
+  display: flex;
+}
+
+.nav-menu a {
+  width: 100%;
+  border-top: 1px solid #555;
+}
+  } 
+    }
